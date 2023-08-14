@@ -18,11 +18,14 @@ public class SecondDemoClass {
         System.out.println("Total No of Even Elements : "+list.stream()
                 .filter(element->element%2==0)
                 .count());
+//
+//        list.stream()
+//                .filter(element->element%2==0)   //intermediate (multiple)
+//                .forEach(ele->System.out.println(ele));  //terminate (one)
 
         list.stream()
                 .filter(element->element%2==0)   //intermediate (multiple)
-                .forEach(ele->System.out.println(ele));  //terminate (one)
-
+                .forEach(System.out::println);  //terminate (one)
 
         list.stream()
                 .filter(element->element%2!=0)  //intermediate
