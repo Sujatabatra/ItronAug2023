@@ -4,6 +4,7 @@ import com.sujata.entity.Book;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Predicate;
 
 public class BookSearch {
 
@@ -42,6 +43,15 @@ Behaviour Parametrization
         List<Book> books=new ArrayList<>();
         for(Book book:bookList){
             if(bookPredicate.bookTest(book))
+                books.add(book);
+        }
+        return books;
+    }
+
+    public List<Book> oneMoreGenericSearch(Predicate<Book> bookPredicate){
+        List<Book> books=new ArrayList<>();
+        for(Book book:bookList){
+            if(bookPredicate.test(book))
                 books.add(book);
         }
         return books;
