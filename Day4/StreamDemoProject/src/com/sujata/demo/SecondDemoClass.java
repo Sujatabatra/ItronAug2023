@@ -20,9 +20,14 @@ public class SecondDemoClass {
                 .count());
 
         list.stream()
-                .filter(element->element%2==0)
-                .forEach(ele->System.out.println(ele));
+                .filter(element->element%2==0)   //intermediate (multiple)
+                .forEach(ele->System.out.println(ele));  //terminate (one)
 
+
+        list.stream()
+                .filter(element->element%2!=0)  //intermediate
+                .map(ele->ele*10)               //intermediate
+                .forEach(number->System.out.println(number)); //terminal
 
 
     }
