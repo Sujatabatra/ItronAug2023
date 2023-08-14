@@ -22,12 +22,15 @@ public class BookSearchMain {
 
             System.out.println(bookSearch.genericSearch(new ExpensiveBookPredicate()));
 
-        List<Book> thickBookList=bookSearch.genericSearch(new BookPredicate() {
-            @Override
-            public boolean bookTest(Book book) {
-                return book.getNoOfPages()>3500;
-            }
-        });
+//        List<Book> thickBookList=bookSearch.genericSearch(new BookPredicate() {
+//            @Override
+//            public boolean bookTest(Book book) {
+//                return book.getNoOfPages()>3500;
+//            }
+//        });
+
+        List<Book> thickBookList=bookSearch.genericSearch(book-> book.getNoOfPages()>3500);
+
 
 
     }
