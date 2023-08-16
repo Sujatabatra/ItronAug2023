@@ -1,6 +1,7 @@
 package com.sujata.presentation;
 
 import com.sujata.entity.Employee;
+import com.sujata.entity.EmployeePayslip;
 import com.sujata.service.EmployeeService;
 import com.sujata.service.EmployeeServiceImpl;
 
@@ -17,7 +18,8 @@ public class EmployeePresentationImpl implements EmployeePresentation{
         System.out.println("2. Search Employee By ID");
         System.out.println("3. Add New Employee");
         System.out.println("4. Delete Employee By ID");
-        System.out.println("5. Exit");
+        System.out.println("5. Generate Payslip");
+        System.out.println("6. Exit");
 
     }
 
@@ -68,6 +70,15 @@ public class EmployeePresentationImpl implements EmployeePresentation{
                 System.out.println("Employee with ID "+empId+" does not exist ");
             break;
         case 5:
+            System.out.println("Enter Employee ID ");
+            int eId=scanner.nextInt();
+            Optional<EmployeePayslip> optionalEmployeePayslip=employeeService.getEmployeePayslip(eId);
+            if(optionalEmployeePayslip.isPresent())
+                System.out.println(optionalEmployeePayslip.get());
+            else
+                System.out.println("Employee with ID "+eId+" does not exist");
+            break;
+        case 6:
             System.out.println("Thanks for using Employee Management System");
             System.exit(0);
         default:

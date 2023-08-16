@@ -1,6 +1,7 @@
 package com.sujata.service;
 
 import com.sujata.entity.Employee;
+import com.sujata.entity.EmployeePayslip;
 import com.sujata.persistence.EmployeeDao;
 import com.sujata.persistence.EmployeeDaoImpl;
 
@@ -29,5 +30,27 @@ public class EmployeeServiceImpl implements EmployeeService{
     @Override
     public boolean deleteEmployeeById(int empId) {
         return employeeDao.deleteRecordById(empId)>0;
+    }
+
+    /*
+    HR=10% of basic salary
+    DA=12% of basic salary
+    PF : 15% of basic salary
+    Total Salary = Basic+HR+DA-PF
+     */
+    @Override
+    public Optional<EmployeePayslip> getEmployeePayslip(int empId) {
+        Optional<Employee> optionalEmployee=employeeDao.getRecordById(empId);
+        EmployeePayslip employeePayslip=null;
+        if(optionalEmployee.isPresent()){
+            Employee employee=optionalEmployee.get();
+            double hr=.10*employee.getEmpSalary();
+            double da=.12*employee.getEmpSalary();
+            double pf=.15*employee.getEmpSalary();
+            double totalSalary=employee.getEmpSalary()+hr+da-pf;
+            employeePayslip=new EmployeePayslip(employee,hr,da,pf,totalSalary);
+
+        }
+        return Optional.ofNullable(employeePayslip);
     }
 }
