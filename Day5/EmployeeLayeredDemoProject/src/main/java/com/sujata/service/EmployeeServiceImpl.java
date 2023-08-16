@@ -20,4 +20,14 @@ public class EmployeeServiceImpl implements EmployeeService{
     public Optional<Employee> getEmployeeById(int empId) {
         return employeeDao.getRecordById(empId);
     }
+
+    @Override
+    public boolean addNewEmployee(Employee employee) {
+        return employeeDao.addRecord(employee)>0;
+    }
+
+    @Override
+    public boolean deleteEmployeeById(int empId) {
+        return employeeDao.deleteRecordById(empId)>0;
+    }
 }

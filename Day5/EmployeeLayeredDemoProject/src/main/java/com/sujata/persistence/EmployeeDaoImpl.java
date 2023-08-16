@@ -71,4 +71,52 @@ public class EmployeeDaoImpl implements EmployeeDao{
         }
         return Optional.ofNullable(employee);
     }
+
+    @Override
+    public int addRecord(Employee employee) {
+        PreparedStatement preparedStatement;
+        try (Connection connection= DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/itrontraining","root","sujata");){
+            Class.forName("com.mysql.cj.jdbc.Driver");
+
+            preparedStatement=connection.prepareStatement("INSERT INTO EMPLOYEE VALUES(?,?,?,?,?)");
+            preparedStatement.setInt(1,employee.getEmpId());
+            preparedStatement.setString(2,employee.getEmpName());
+            preparedStatement.setString(3,employee.getEmpDesignation());
+            preparedStatement.setString(4,employee.getEmpDepartment());
+            preparedStatement.setDouble(5,employee.getEmpSalary());
+
+            //executeUpdate() : execute DML statement and return number of rows manipulated by the query
+            return preparedStatement.executeUpdate();
+
+        }
+        catch(ClassNotFoundException ex){
+            ex.printStackTrace();
+        }
+        catch(SQLException ex){
+            ex.printStackTrace();
+        }
+        return 0;
+    }
+
+    @Override
+    public int deleteRecordById(int id) {
+        PreparedStatement preparedStatement;
+        try (Connection connection= DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/itrontraining","root","sujata");){
+            Class.forName("com.mysql.cj.jdbc.Driver");
+
+            preparedStatement=connection.prepareStatement("DELETE FROM EMPLOYEE WHERE EID=?");
+            preparedStatement.setInt(1,id);
+
+            //executeUpdate() : execute DML statement and return number of rows manipulated by the query
+            return preparedStatement.executeUpdate();
+
+        }
+        catch(ClassNotFoundException ex){
+            ex.printStackTrace();
+        }
+        catch(SQLException ex){
+            ex.printStackTrace();
+        }
+        return 0;
+    }
 }
