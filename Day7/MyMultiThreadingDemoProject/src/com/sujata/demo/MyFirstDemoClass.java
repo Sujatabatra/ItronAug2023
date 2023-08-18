@@ -17,7 +17,7 @@ public class MyFirstDemoClass {
 
 
         for(int i=1;i<=5;i++) {
-            System.out.println("Welcome to " + Thread.currentThread().getName()+" i : "+i);
+            System.out.println("Welcome " + Thread.currentThread().getName()+" i : "+i);
             try{
                 Thread.sleep(500);
             }
@@ -25,6 +25,10 @@ public class MyFirstDemoClass {
                 ex.printStackTrace();
             }
         }
+
+        //main thread
+        childThread.run();
+
         System.out.println("Good Bye from "+Thread.currentThread().getName());
     }
 }
