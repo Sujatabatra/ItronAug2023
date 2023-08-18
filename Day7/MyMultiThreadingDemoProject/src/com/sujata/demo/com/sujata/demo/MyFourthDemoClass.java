@@ -2,12 +2,13 @@ package com.sujata.demo.com.sujata.demo;
 
 class Account implements Runnable{
 
-    private int balance=1000;
+    private static  int balance=1000;
 
     @Override
     public void run() {
 
         synchronized (Account.class) {
+//        synchronized (this) {
             if (balance > 800) {
                 System.out.println(Thread.currentThread().getName() + " you have sufficient balance to withdraw and you balance is Rs. " + balance);
                 try {
@@ -26,8 +27,9 @@ class Account implements Runnable{
 public class MyFourthDemoClass {
     public static void main(String args[]){
         Account a001=new Account();
+        Account a002=new Account();
         Thread prateek=new Thread(a001,"Prateek");
-        Thread amrit=new Thread(a001,"Amrit");
+        Thread amrit=new Thread(a002,"Amrit");
 
         prateek.start();
         amrit.start();
