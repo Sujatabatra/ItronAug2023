@@ -9,8 +9,8 @@
 <br/>
 <a href="./listAllEmps">List All Employees</a><br><br>
 <a href="./InputIdForSearch.jsp">Search Employees By ID</a><br><br>
-<a href="">Add New Employee</a><br><br>
-<a href="">Delete Employee By ID</a><br><br>
-<a href="">Generate Payslip</a><br><br>
+<a href="./InputEmployeeDetails.jsp">Add New Employee</a><br><br>
+<a href="./InputIdForDelete.jsp">Delete Employee By ID</a><br><br>
+<a href="./InputIdForPayslip.jsp">Generate Payslip</a><br><br>
 </body>
 </html>

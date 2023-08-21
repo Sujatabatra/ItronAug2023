@@ -34,5 +34,8 @@
     </tr>
 
 </table>
+
+<br><br>
+<a href="./">Go To Main Page</a>
 </body>
 </html>

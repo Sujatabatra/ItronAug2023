@@ -10,12 +10,14 @@
 <head>
     <title>Title</title>
 </head>
+
+<body>
 <h1>Employee Management System</h1>
 <form action="./searchById">
     Enter Employee ID :<input type="text" name="empId"><br><br>
     <input type="submit" value="Search">
 </form>
-<body>
-
+<br><br>
+<a href="./">Go To Main Page</a>
 </body>
 </html>

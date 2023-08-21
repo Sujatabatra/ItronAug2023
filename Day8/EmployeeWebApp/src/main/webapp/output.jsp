@@ -14,5 +14,8 @@
 <h1>Employee Management System</h1>
 <hr>
 <%= session.getAttribute("message")%>
+
+<br><br>
+<a href="./">Go To Main Page</a>
 </body>
 </html>

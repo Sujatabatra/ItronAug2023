@@ -104,9 +104,15 @@ public class EmployeeDaoImpl implements EmployeeDao{
 
     @Override
     public int deleteRecordById(int id) {
+
         PreparedStatement preparedStatement;
-        try (Connection connection= DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/itrontraining","root","sujata");){
+        try {
             Class.forName("com.mysql.cj.jdbc.Driver");
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+        try (Connection connection= DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/itrontraining","root","sujata");){
+
 
             preparedStatement=connection.prepareStatement("DELETE FROM EMPLOYEE WHERE EID=?");
             preparedStatement.setInt(1,id);
@@ -115,9 +121,7 @@ public class EmployeeDaoImpl implements EmployeeDao{
             return preparedStatement.executeUpdate();
 
         }
-        catch(ClassNotFoundException ex){
-            ex.printStackTrace();
-        }
+
         catch(SQLException ex){
             ex.printStackTrace();
         }
