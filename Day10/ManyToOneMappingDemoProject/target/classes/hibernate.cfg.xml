@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+    "-//Hibernate/Hibernate Configuration DTD//EN"
+    "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="connection.url">jdbc:mysql://localhost:3306/itrontraining</property>
+    <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+    <property name="connection.username">root</property>
+    <property name="connection.password">sujata</property>
+
+    <!-- DB schema will be updated if needed -->
+    <!-- update : if schema is not there create the new schema otherwise update the existing schema or use the existing schema-->
+    <property name="hibernate.hbm2ddl.auto">update</property>
+    <property name="hibernate.show_sql">true</property>
+    <!--Dialect:create SQL for underlying database-->
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQL8Dialect</property>
+
+    <mapping class="com.sujata.demo.Employee"/>
+    <mapping class="com.sujata.demo.Project"/>
+  </session-factory>
+</hibernate-configuration>
