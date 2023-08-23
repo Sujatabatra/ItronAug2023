@@ -29,7 +29,13 @@ public class EmployeeServiceImpl implements EmployeeService{
 
     @Override
     public boolean deleteEmployeeById(int empId) {
-        return employeeDao.deleteRecordById(empId)>0;
+        Optional<Employee> optionalEmployee=getEmployeeById(empId);
+        if(optionalEmployee.isPresent()){
+            employeeDao.deleteRecordById(optionalEmployee.get());
+            return true;
+        }
+        else
+            return false;
     }
 
     /*
@@ -52,5 +58,19 @@ public class EmployeeServiceImpl implements EmployeeService{
 
         }
         return Optional.ofNullable(employeePayslip);
+    }
+
+    @Override
+    public boolean incrementEmployeeSalary(int empId) {
+
+        Optional<Employee> optionalEmployee=getEmployeeById(empId);
+        if(optionalEmployee.isPresent()){
+            Employee employee=optionalEmployee.get();
+            employee.setEmpSalary(employee.getEmpSalary()+employee.getEmpSalary()*.10);
+            employeeDao.updateRecord(employee);
+            return true;
+        }
+        else
+            return false;
     }
 }

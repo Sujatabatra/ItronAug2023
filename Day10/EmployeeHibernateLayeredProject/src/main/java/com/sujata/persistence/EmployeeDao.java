@@ -11,5 +11,7 @@ public interface EmployeeDao {
 
     int addRecord(Employee employee);
 
-    int deleteRecordById(int id);
+    int deleteRecordById(Employee employee);
+
+    int updateRecord(Employee employee);
 }

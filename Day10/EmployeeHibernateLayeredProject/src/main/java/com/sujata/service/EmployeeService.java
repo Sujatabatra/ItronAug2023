@@ -15,4 +15,6 @@ public interface EmployeeService {
     boolean deleteEmployeeById(int empId);
 
     Optional<EmployeePayslip> getEmployeePayslip(int empId);
+
+    boolean incrementEmployeeSalary(int empId);
 }

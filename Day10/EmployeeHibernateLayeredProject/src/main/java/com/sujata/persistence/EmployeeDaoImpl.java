@@ -64,21 +64,26 @@ public class EmployeeDaoImpl implements EmployeeDao{
     }
 
     @Override
-    public int deleteRecordById(int id) {
+    public int deleteRecordById(Employee employee) {
         Session session=sessionFactory.openSession();
         Transaction transaction=session.beginTransaction();
 
-        Optional<Employee> optionalEmployee=getRecordById(id);
-
-        if(optionalEmployee.isPresent()) {
-            session.delete(optionalEmployee.get());
+            session.delete(employee);
             transaction.commit();
             session.close();
             return 1;
-        }
-        else{
-            return 0;
-        }
 
+    }
+
+    @Override
+    public int updateRecord(Employee employee) {
+        Session session=sessionFactory.openSession();
+        Transaction transaction=session.beginTransaction();
+
+        session.update(employee);
+
+        transaction.commit();
+        session.close();
+        return 1;
     }
 }
