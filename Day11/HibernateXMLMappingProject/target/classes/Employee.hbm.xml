@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.sujata.entity.Employee" table="employee" schema="itrontraining">
+        <id name="eId">
+            <column name="eId" sql-type="int"/>
+        </id>
+        <property name="eName">
+            <column name="eName" sql-type="varchar(30)" length="30" not-null="true"/>
+        </property>
+        <property name="designation">
+            <column name="designation" sql-type="varchar(20)" length="20" not-null="true"/>
+        </property>
+        <property name="department">
+            <column name="department" sql-type="varchar(30)" length="30" not-null="true"/>
+        </property>
+        <property name="salary">
+            <column name="salary" sql-type="double" precision="-1" not-null="true"/>
+        </property>
+    </class>
+</hibernate-mapping>
