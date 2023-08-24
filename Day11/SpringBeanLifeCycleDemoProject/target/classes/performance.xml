@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="Krithik" class="com.sujata.producer.Dancer">
+        <property name="style" value="Free Style"/>
+    </bean>
+
+    <bean id="Prateek" class="com.sujata.producer.Juggler">
+        <constructor-arg name="balls" value="4"/>
+    </bean>
+
+    <bean id="Amrit" class="com.sujata.producer.Singer" init-method="singerInit" destroy-method="singerDestroy">
+        <property name="song" value="Home"/>
+    </bean>
+
+    <bean id="Arindam" class="com.sujata.producer.Singer">
+        <property name="song" value="Whatever"/>
+    </bean>
+    <bean id="globalInitSetting" class="com.sujata.producer.GlobalInitSetting"/>
+
+    <!--Constructor Injection-->
+    <bean id="fikkiAuditorium" class="com.sujata.consumer.Auditorium">
+        <constructor-arg name="performer" ref="Krithik"/>
+    </bean>
+
+    <!--Setter Injection-->
+    <bean id="ChatrasalAuditorium" class="com.sujata.consumer.Auditorium">
+        <property name="performer" ref="Prateek"/>
+    </bean>
+</beans>
