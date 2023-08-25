@@ -27,7 +27,8 @@ public class EmployeePresentationImpl implements EmployeePresentation{
         System.out.println("3. Add New Employee");
         System.out.println("4. Delete Employee By ID");
         System.out.println("5. Generate Payslip");
-        System.out.println("6. Exit");
+        System.out.println("6. Search Employee By Department");
+        System.out.println("7. Exit");
 
     }
 
@@ -87,6 +88,18 @@ public class EmployeePresentationImpl implements EmployeePresentation{
                 System.out.println("Employee with ID "+eId+" does not exist");
             break;
         case 6:
+            System.out.println("Enter Department Name");
+            String dep=scanner.next();
+            List<Employee> employeeList=employeeService.getEmployeeByDepartment(dep);
+            if(employeeList.size()>0){
+                for(Employee employee1:employeeList){
+                    System.out.println(employee1);
+                }
+            }
+            else
+                System.out.println("No employee works in department "+dep);
+            break;
+        case 7:
             System.out.println("Thanks for using Employee Management System");
             System.exit(0);
         default:

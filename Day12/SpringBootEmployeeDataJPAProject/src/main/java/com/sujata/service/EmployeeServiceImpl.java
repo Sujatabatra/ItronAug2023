@@ -73,4 +73,10 @@ public class EmployeeServiceImpl implements EmployeeService{
         }
         return Optional.ofNullable(employeePayslip);
     }
+
+    @Override
+    public List<Employee> getEmployeeByDepartment(String department) {
+        return  employeeDao.findEmployeeByEmpDepartment(department);
+//        return employeeDao.findByDepartment(department);
+    }
 }
