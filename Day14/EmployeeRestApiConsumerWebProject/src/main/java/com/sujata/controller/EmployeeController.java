@@ -46,9 +46,68 @@ public class EmployeeController {
             modelAndView.setViewName("DisplayEmployee");
         }
         else{
-            modelAndView.addObject("message","Employee with ID "+employeeId+"does not exist");
+            modelAndView.addObject("message","Employee with ID "+employeeId+" does not exist");
             modelAndView.setViewName("Output");
         }
         return modelAndView;
+    }
+
+    @RequestMapping("/inputEmployeeDetails")
+    public ModelAndView inputEmployeeDetailsPageController(){
+        return new ModelAndView("InputEmployeeDetails");
+    }
+
+    @RequestMapping("/saveEmployee")
+    public ModelAndView saveEmployeeController(HttpServletRequest request){
+        Employee employee=new Employee();
+        employee.setEmpId(Integer.parseInt(request.getParameter("eId")));
+        employee.setEmpName(request.getParameter("eName"));
+        employee.setEmpDepartment(request.getParameter("eDepartment"));
+        employee.setEmpDesignation(request.getParameter("eDesignation"));
+        employee.setEmpSalary(Double.parseDouble(request.getParameter("eSalary")));
+        String message=null;
+        if(employeeService.addEmployee(employee))
+            message="Employee Added";
+        else
+            message="Employee cannot be Added";
+
+        return new ModelAndView("Output","message",message);
+
+    }
+
+    @RequestMapping("/inputEmployeeIdForDelete")
+    public ModelAndView inputEmpIdForDeletePageController(){
+        return new ModelAndView("InputEmpIDForDelete");
+    }
+
+    @RequestMapping("/deleteEmployee")
+    public ModelAndView deleteEmployeeController(HttpServletRequest request){
+
+        int employeeId=Integer.parseInt(request.getParameter("empId"));
+        String message=null;
+        if(employeeService.deleteEmployee(employeeId))
+            message="Employee Deleted";
+        else
+            message="Employee cannot be Removed";
+
+        return new ModelAndView("Output","message",message);
+    }
+
+    @RequestMapping("/inputEmployeeDetailForUpdate")
+    public ModelAndView inputEmployeeDetailsForUpdatePageController(){
+        return new ModelAndView("InputEmpDetailsForUpdateSalary");
+    }
+
+    @RequestMapping("/updateEmployee")
+    public ModelAndView updateEmployeeController(HttpServletRequest request){
+        int employeeId=Integer.parseInt(request.getParameter("empId"));
+        double incrementAmount=Double.parseDouble(request.getParameter("incrementAmt"));
+        String message=null;
+        if(employeeService.updateEmployee(employeeId,incrementAmount))
+            message="Employee Salary Updated";
+        else
+            message="Employee Salary cannot be Updated";
+
+        return new ModelAndView("Output","message",message);
     }
 }

@@ -14,6 +14,8 @@
 <h1>Welcome to Employee Management System</h1>
 <a href="./showAllEmployees">List All Employees</a><br><br>
 <a href="./inputEmployeeId">Search Employee By ID</a><br><br>
-<a href="">Add New Employee</a><br><br>
+<a href="./inputEmployeeDetails">Add New Employee</a><br><br>
+<a href="./inputEmployeeIdForDelete">Delete Employee</a><br><br>
+<a href="./inputEmployeeDetailForUpdate">Increment Employee Salary</a><br><br>
 </body>
 </html>
