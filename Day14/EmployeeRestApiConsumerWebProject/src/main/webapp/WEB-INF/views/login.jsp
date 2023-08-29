@@ -2,7 +2,7 @@
   Created by IntelliJ IDEA.
   User: Sujata
   Date: 29-08-2023
-  Time: 11:20
+  Time: 14:55
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -13,15 +13,12 @@
 <body>
 <h1>Employee Management System</h1>
 <hr>
-<h2>Welcome ${user.username}!</h2>
-<hr>
-<form action="./deleteEmployee">
-  Enter Employee ID : <input type="text" name="empId"><br><br>
-  <input type="submit" value="Delete Employee">
+<form action="./login">
+    Enter User Name : <input type="text" name="uname"><br><br>
+    Enter Password : <input type="password" name="pwd"><br><br>
+    <input type="submit" value="Login">
+    <br><br>
+    <p>${message}</p>
 </form>
-
-<br><br>
-<a href="./menu">Go To Main Page</a>
-
 </body>
 </html>

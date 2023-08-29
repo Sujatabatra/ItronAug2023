@@ -13,6 +13,8 @@
 <body>
 <h1>Employee Management System</h1>
 <hr>
+<h2>Welcome ${user.username}!</h2>
+<hr>
 <form action="./saveEmployee">
     Enter Employee ID : <input type="text" name="eId"><br><br>
     Enter Employee Name : <input type="text" name="eName"><br><br>
@@ -23,6 +25,6 @@
 </form>
 
 <br><br>
-<a href="./">Go To Main Page</a>
+<a href="./menu">Go To Main Page</a>
 </body>
 </html>

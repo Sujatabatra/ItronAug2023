@@ -13,13 +13,15 @@
 <body>
 <h1>Employee Management System</h1>
 <hr>
+<h2>Welcome ${user.username}!</h2>
+<hr>
 <form action="./searchEmployee">
   Enter Employee ID : <input type="text" name="empId"><br><br>
   <input type="submit" value="Search Employee">
 </form>
 
 <br><br>
-<a href="./">Go To Main Page</a>
+<a href="./menu">Go To Main Page</a>
 
 </body>
 </html>

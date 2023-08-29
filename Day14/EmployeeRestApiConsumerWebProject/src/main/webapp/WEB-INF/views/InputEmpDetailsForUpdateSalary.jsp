@@ -13,6 +13,8 @@
 <body>
 <h1>Employee Management System</h1>
 <hr>
+<h2>Welcome ${user.username}!</h2>
+<hr>
 <form action="./updateEmployee">
     Enter Employee ID : <input type="text" name="empId"><br><br>
     Enter Increment Amount : <input type="text" name="incrementAmt"><br><br>
@@ -20,7 +22,7 @@
 </form>
 
 <br><br>
-<a href="./">Go To Main Page</a>
+<a href="./menu">Go To Main Page</a>
 
 </body>
 </html>

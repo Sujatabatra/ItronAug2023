@@ -12,6 +12,9 @@
 </head>
 <body>
 <h1>Welcome to Employee Management System</h1>
+<hr>
+<h2>Welcome ${user.username}!</h2>
+<hr>
 <a href="./showAllEmployees">List All Employees</a><br><br>
 <a href="./inputEmployeeId">Search Employee By ID</a><br><br>
 <a href="./inputEmployeeDetails">Add New Employee</a><br><br>

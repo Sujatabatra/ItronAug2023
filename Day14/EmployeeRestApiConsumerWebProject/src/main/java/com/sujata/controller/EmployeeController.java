@@ -1,6 +1,7 @@
 package com.sujata.controller;
 
 import com.sujata.entity.Employee;
+import com.sujata.entity.User;
 import com.sujata.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,7 +17,8 @@ public class EmployeeController {
     @Autowired
     private EmployeeService employeeService;
 
-    @RequestMapping("/")
+
+    @RequestMapping("/menu")
     public ModelAndView showMenuPageController() {
         return new ModelAndView("menu");
     }

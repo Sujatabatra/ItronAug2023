@@ -14,6 +14,8 @@
 <body>
 <h1>Employee Management System</h1>
 <hr>
+<h2>Welcome ${user.username}!</h2>
+<hr>
 <h2>Employee Details</h2>
 <table border="1">
     <tr>
@@ -37,7 +39,7 @@
 
 </table>
 <br><br>
-<a href="./">Go To Main Page</a>
+<a href="./menu">Go To Main Page</a>
 
 </body>
 </html>
