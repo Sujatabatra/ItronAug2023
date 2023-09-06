@@ -5,6 +5,10 @@
     <title>Title</title>
 </head>
 <body>
+<h1>Welcome to Employee Management System</h1>
+<hr>
+<h2 th:text="'Welcome '+${session.user.username}+'!'"></h2>
+<hr>
 <table border="1">
     <tr>
         <th>Employee ID </th>
@@ -21,7 +25,7 @@
             <td th:text="${employee.empDepartment}"></td>
             <td th:text="${employee.empSalary}"></td>
         </tr>
-    
+
 </table>
 <br><br>
 <a href="./menu">Go To Main Page</a>

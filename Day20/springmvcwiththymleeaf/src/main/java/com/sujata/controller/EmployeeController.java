@@ -89,7 +89,7 @@ public class EmployeeController {
     @RequestMapping("/inputEmployeeDetails")
     public ModelAndView inputEmployeeDetailsPageController(){
 
-        return new ModelAndView("InputEmployeeDetails","empl",new Employee());
+        return new ModelAndView("inputemployeedetails.html","empl",new Employee());
     }
 
     @RequestMapping("/saveEmployee")
